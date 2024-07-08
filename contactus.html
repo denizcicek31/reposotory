@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contactusfolder/contact-us.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("XN2At7pbsBbW_CbZE"); // Replace with your EmailJS user ID
+        })();
+    </script>
+</head>
+<style>
+    body {
+  background-image: url(contactus/katie-smith-uQs1802D0CQ-unsplash.jpg); /* Replace with the actual path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Exo 2', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Add a dark overlay for better text visibility */
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.protein {
+  font-size: 40px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #ffffff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.middle-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 35px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label, input, textarea {
+  width: 100%;
+  margin: 10px 0;
+}
+
+input, textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.main-button {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.main-button:hover {
+  background-color: #cccccc;
+  transform: scale(1.05);
+}
+
+.bottom-part {
+  /* Optional footer styles */
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <p title="Website Name" class="protein">ProEatIn</p>
+            <button class="nav-button"><a href="mainPage.html">Main Page</a></button>
+            <button class="nav-button"><a href="recipes.html">Recipes</a></button>
+            <button class="nav-button"><a href="calories.html">Calorie Calculator</a></button>
+            <button class="nav-button"><a href="about-us.html">About Us</a></button>
+            <button class="nav-button"><a href="contact-us.html">Contact Us</a></button>
+        </div>
+        <div class="middle-part">
+            <div class="middle">
+                <div class="text-section">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions, suggestions, or feedback, feel free to reach out to us. We'd love to hear from you!</p>
+                    <form id="contactForm">
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name" required><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="message">Message:</label><br>
+                        <textarea id="message" name="message" rows="4" required></textarea><br>
+                        <button type="submit" class="main-button">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-part">
+            <!-- Optional footer content -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Collect form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    message: document.getElementById('message').value
+                };
+
+                // Send the form data using EmailJS
+                emailjs.send('deniz', 'deniztemplate', formData)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Your message has been sent successfully!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert('Failed to send your message. Please try again later.');
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

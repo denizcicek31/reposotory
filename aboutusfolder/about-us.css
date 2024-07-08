@@ -1,0 +1,158 @@
+body {
+  background-image: url("katie-smith-uQs1802D0CQ-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Exo 2', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.protein {
+  font-size: 40px;
+  color: #fff;
+  background-color: rgba(175, 175, 175, 0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #777777;
+  transform: scale(1.1);
+}
+
+.active {
+  background-color: #979297;
+}
+
+.middle-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.text-div {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.bottom-part {
+  /* Optional footer styles */
+}
+
+
+.protein {
+  font-size: 40px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
+.active {
+  background-color: #acacac;
+}
+
+.middle-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.text-div {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.bottom-part {
+  /* Optional footer styles */
+}
