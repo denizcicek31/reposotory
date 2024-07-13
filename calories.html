@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+    <style>
+        /* General body styles */
+        body {
+            background-image: url('contactus/katie-smith-uQs1802D0CQ-unsplash.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Exo 2', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for better text visibility */
+        }
+
+        /* Navigation bar styles */
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .protein {
+            font-size: 40px;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: #ffffff;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Main content area styles */
+        .middle-part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .text-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label, input {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        input, 
+        select { 
+            width: 200px; 
+            height: 25px; 
+            margin: 2px; 
+            -moz-box-sizing: border-box; 
+            -webkit-box-sizing: border-box; 
+            box-sizing: border-box; 
+        } 
+
+        .main-button {
+            background-color: #ffffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <p title="Website Name" class="protein">ProEatIn</p>
+            <button class="nav-button"><a href="mainPage.html">Main Page</a></button>
+            <button class="nav-button"><a href="recipes.html">Recipes</a></button>
+            <button class="nav-button"><a href="calories.html">Calorie Calculator</a></button>
+            <button class="nav-button"><a href="about-us.html">About Us</a></button>
+            <button class="nav-button"><a href="contactus.html">Contact Us</a></button>
+        </div>
+        <div class="middle-part">
+            <div class="text-section">
+                <h2>Calorie Calculator</h2>
+                <form id="calorieForm">
+                    <div style="display: flex;">
+                    <label style="display: flex;" for="height">Height:</label><br>
+                    <input  type="text" id="height" name="height" class="cal-input" required><br>
+                </div>
+                <div style="display: flex;">
+                    <label style="display: flex;" for="weight">Weight:</label><br>
+                    <input  type="text" id="weight" name="weight" class="cal-input" required><br>
+                </div>
+                <div style="display: flex; ">
+                    <label style="display: flex; " for="age">Age:</label><br>
+                    <input style="margin-left: 19px;"  type="text" id="age" name="age" class="cal-input" required><br>
+                </div>
+                    <label>Gender:</label><br>
+                    <div style="display: flex; justify-content: flex-start;" class="genders">
+                    <input style="margin-left: 150px;" type="radio" id="male" name="gender" value="male">
+                    <label style="display: flex; justify-content: flex-start; align-items: center;" for="male">Male</label>
+                    <input  type="radio" id="female" name="gender" value="female">
+                    <label style="display: flex; justify-content: flex-start; align-items: center;" for="female">Female</label><br><br>
+                </div>
+                <div>
+                    <label>Activity Level:</label><br>
+                    <div style="display: flex;">
+                    <input type="radio" id="notactive" name="activity" value="notactive">
+                    <label for="notactive">Not Active</label>
+                </div>
+                <div style="display: flex;">
+                    <input type="radio" id="normalactive" name="activity" value="normalactive">
+                    <label for="normalactive">Normal Active</label>
+                </div>
+                <div style="display: flex;">
+                    <input type="radio" id="prettyactive" name="activity" value="prettyactive">
+                    <label for="prettyactive">Pretty Active</label><br><br>
+                </div>
+                </div>
+                    <button type="submit" class="main-button">Calculate</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       const calorieForm = document.getElementById('calorieForm');
+
+calorieForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const age = parseFloat(document.getElementById('age').value);
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const activity = document.querySelector('input[name="activity"]:checked').value;
+
+    let BMR;
+
+    if (gender === "male") {
+        BMR = calculateBMR(weight, height, age, 88.362, 13.397, 4.799, 5.677);
+    } else if (gender === "female") {
+        BMR = calculateBMR(weight, height, age, 447.593, 9.247, 3.098, 4.330);
+    }
+
+    if (activity === "notactive") {
+        BMR *= 1.1;
+    } else if (activity === "normalactive") {
+        BMR *= 1.2;
+    } else if (activity === "prettyactive") {
+        BMR *= 1.55;
+    }
+    
+   
+    const result = document.createElement("p");
+    result.textContent = `Your BMR is ${BMR.toFixed(2)} kcal/day`;
+    
+    // Remove any existing result before appending new one
+    const oldResult = calorieForm.querySelector("p.result");
+    if (oldResult) {
+        oldResult.remove();
+    }
+
+    calorieForm.appendChild(result);
+});
+
+function calculateBMR(weight, height, age, a, b, c, d) {
+    return a + (b * weight) + (c * height) - (d * age);
+}
+
+    </script>
+</body>
+</html>
