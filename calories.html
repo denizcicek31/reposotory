@@ -16,6 +16,7 @@
             margin: 0;
             padding: 0;
         }
+    
 
         /* Container styles */
         .container {
@@ -176,7 +177,7 @@
                 </div>
                 </div>
                     <button type="submit" class="main-button">Calculate</button>
-                    
+                   
                 </form>
             </div>
         </div>
@@ -212,7 +213,7 @@ calorieForm.addEventListener('submit', function(event) {
     
    
     const result = document.createElement("p");
-    result.textContent = `Your BMR is ${BMR.toFixed(2)} kcal/day`;
+    result.textContent = `Your BMR is ${BMR.toFixed(2)} kcal/day \n If you want to lose weight you have to at least consume ${(BMR - 500).toFixed(2)} per day`;
     
     // Remove any existing result before appending new one
     const oldResult = calorieForm.querySelector("p.result");

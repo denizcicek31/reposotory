@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <style>
+        /* General body styles */
+        body {
+            background-image: url('contactus/katie-smith-uQs1802D0CQ-unsplash.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Exo 2', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for better text visibility */
+        }
+
+        /* Navigation bar styles */
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .protein {
+            font-size: 40px;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: #ffffff;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Main content area styles */
+        .middle-part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .text-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .meal-search-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-control {
+            width: 200px;
+            height: 25px;
+            margin: 10px 0;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #000;
+        }
+
+        .main-button {
+            background-color: #ffffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+
+        .recipes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .meal-item {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .meal-item:hover {
+            transform: scale(1.05);
+        }
+
+        .meal-img img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .meal-name h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .meal-name a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .meal-name a:hover {
+            background-color: #333;
+        }
+
+        .meal-details {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .meal-details.showRecipe {
+            display: block;
+        }
+
+        .meal-details-content h2,
+        .meal-details-content p,
+        .meal-details-content img {
+            margin: 10px 0;
+        }
+
+        .recipe-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <p title="Website Name" class="protein">ProEatIn</p>
+            <button class="nav-button"><a href="mainPage.html">Main Page</a></button>
+            <button class="nav-button"><a href="recipes.html">Recipes</a></button>
+            <button class="nav-button"><a href="calories.html">Calorie Calculator</a></button>
+            <button class="nav-button"><a href="about-us.html">About Us</a></button>
+            <button class="nav-button"><a href="contactus.html">Contact Us</a></button>
+        </div>
+        <div class="middle-part">
+            <div class="text-section">
+                <h2>Recipe Finder</h2>
+                <div class="meal-search-box">
+                    <input type="text" class="search-control" placeholder="Enter an ingredient" id="search-input">
+                    <button type="submit" class="main-button" id="search-btn">Search Recipes</button>
+                </div>
+            </div>
+        </div>
+        <div class="meal-result">
+            <h2>Your Search Results:</h2>
+            <div id="meal" class="recipes"></div>
+        </div>
+        <div class="meal-details">
+            <button type="button" class="recipe-close-btn" id="recipe-close-btn">&times;</button>
+            <div class="meal-details-content"></div>
+        </div>
+    </div>
+    <script>
+        const searchBtn = document.getElementById('search-btn');
+        const mealList = document.getElementById('meal');
+        const mealDetailsContent = document.querySelector('.meal-details-content');
+        const recipeCloseBtn = document.getElementById('recipe-close-btn');
+
+        // event listeners
+        searchBtn.addEventListener('click', getMealList);
+        mealList.addEventListener('click', getMealRecipe);
+        recipeCloseBtn.addEventListener('click', () => {
+            mealDetailsContent.parentElement.classList.remove('showRecipe');
+        });
+
+        // get meal list that matches with the ingredients
+        function getMealList() {
+            let searchInputTxt = document.getElementById('search-input').value.trim();
+            fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`)
+                .then(response => response.json())
+                .then(data => {
+                    let html = "";
+                    if (data.meals) {
+                        data.meals.forEach(meal => {
+                            html += `
+                                <div class="meal-item" data-id="${meal.idMeal}">
+                                    <div class="meal-img">
+                                        <img src="${meal.strMealThumb}" alt="food">
+                                    </div>
+                                    <div class="meal-name">
+                                        <h3>${meal.strMeal}</h3>
+                                        <a href="#" class="recipe-btn">Get Recipe</a>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        mealList.classList.remove('notFound');
+                    } else {
+                        html = "Sorry, we didn't find any meal!";
+                        mealList.classList.add('notFound');
+                    }
+                    mealList.innerHTML = html;
+                });
+        }
+
+        // get recipe of the meal
+        function getMealRecipe(e) {
+            e.preventDefault();
+            if (e.target.classList.contains('recipe-btn')) {
+                let mealItem = e.target.parentElement.parentElement;
+                fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+                    .then(response => response.json())
+                    .then(data => mealRecipeModal(data.meals));
+            }
+        }
+
+        // create a modal
+        function mealRecipeModal(meal) {
+            meal = meal[0];
+            let html = `
+                <h2 class="recipe-title">${meal.strMeal}</h2>
+                <p class="recipe-category">${meal.strCategory}</p>
+                <div class="recipe-instruct">
+                    <h3>Instructions:</h3>
+                    <p>${meal.strInstructions}</p>
+                </div>
+                <div class="recipe-meal-img">
+                    <img src="${meal.strMealThumb}" alt="">
+                </div>
+                <div class="recipe-link">
+                    <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
+                </div>
+            `;
+            mealDetailsContent.innerHTML = html;
+            mealDetailsContent.parentElement.classList.add('showRecipe');
+        }
+        document.addEventListener("click",(e) =>{
+            
+        })
+    </script>
+</body>
+</html>
