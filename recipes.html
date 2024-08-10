@@ -5,204 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Finder</title>
     <style>
-        /* General body styles */
-        body {
-            background-image: url('contactus/katie-smith-uQs1802D0CQ-unsplash.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            font-family: 'Exo 2', sans-serif;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+        
+    /* General body styles */
+    body {
+        background-image: url('contactus/katie-smith-uQs1802D0CQ-unsplash.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* Container styles */
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for better text visibility */
-        }
+    /* Container styles */
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for better text visibility */
+    }
 
-        /* Navigation bar styles */
-        .navigation {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-        }
+    /* Navigation bar styles */
+    .navigation {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+    }
 
-        .protein {
-            font-size: 40px;
-            color: #fff;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 10px 20px;
-            border-radius: 10px;
-        }
+    .protein {
+        font-size: 40px;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
 
-        .nav-button {
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    .nav-button {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
 
-        .nav-button a {
-            color: #fff;
-            text-decoration: none;
-        }
+    .nav-button a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-        .nav-button:hover {
-            background-color: #ffffff;
-            color: #000;
-            transform: scale(1.1);
-        }
+    .nav-button:hover {
+        background-color: #ffffff;
+        color: #000;
+        transform: scale(1.1);
+    }
 
-        /* Main content area styles */
-        .middle-part {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 50px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            margin-top: 20px;
-        }
+    /* Main content area styles */
+    .middle-part {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 50px 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        margin-top: 20px;
+    }
 
-        .text-section {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .text-section {
+        max-width: 600px;
+        margin: 0 auto;
+    }
 
-        h2 {
-            font-size: 35px;
-            color: white;
-            margin-bottom: 20px;
-        }
+    h2 {
+        font-size: 35px;
+        color: white;
+        margin-bottom: 20px;
+    }
 
-        .meal-search-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .meal-search-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .search-control {
-            width: 200px;
-            height: 25px;
-            margin: 10px 0;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #fff;
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #000;
-        }
+    .search-control {
+        width: 200px;
+        height: 25px;
+        margin: 10px 0;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #000;
+    }
 
-        .main-button {
-            background-color: #ffffff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 18px;
-            margin: 10px 0;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    .main-button {
+        background-color: #ffffff;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
 
-        .main-button:hover {
-            background-color: #cccccc;
-            transform: scale(1.05);
-        }
+    .main-button:hover {
+        background-color: #cccccc;
+        transform: scale(1.05);
+    }
 
-        .recipes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .recipes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-        .meal-item {
-            background-color: #fff;
-            color: #000;
-            border-radius: 10px;
-            margin: 10px;
-            padding: 20px;
-            width: 250px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+    .meal-item {
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 20px;
+        width: 250px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
 
-        .meal-item:hover {
-            transform: scale(1.05);
-        }
+    .meal-item:hover {
+        transform: scale(1.05);
+    }
 
-        .meal-img img {
-            width: 100%;
-            border-radius: 10px;
-        }
+    .meal-img img {
+        max-width: 150px;
+        max-height: 150px;
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+    }
 
-        .meal-name h3 {
-            font-size: 20px;
-            margin: 10px 0;
-        }
+    .meal-name h3 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
 
-        .meal-name a {
-            text-decoration: none;
-            color: #fff;
-            background-color: #000;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+    .meal-name a {
+        text-decoration: none;
+        color: #fff;
+        background-color: #000;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
 
-        .meal-name a:hover {
-            background-color: #333;
-        }
+    .meal-name a:hover {
+        background-color: #333;
+    }
 
-        .meal-details {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 700px;
-            max-height: 80%;
-            background-color: #fff;
-            color: #000;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            z-index: 1000;
-            overflow-y: auto;
-        }
+    .meal-details {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 700px;
+        max-height: 80%;
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        z-index: 1000;
+        overflow-y: auto;
+    }
 
-        .meal-details.showRecipe {
-            display: block;
-        }
+    .meal-details.showRecipe {
+        display: block;
+    }
 
-        .meal-details-content h2,
-        .meal-details-content p,
-        .meal-details-content img {
-            margin: 10px 0;
-        }
+    .meal-details-content h2,
+    .meal-details-content p,
+    .meal-details-content img {
+        margin: 10px 0;
+    }
 
-        .recipe-close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 25px;
-            cursor: pointer;
-        }
-    </style>
+    .recipe-close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    /* Food Information Section Styles */
+    .food-info-section {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .food-info-form input,
+    .food-info-form textarea {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #000;
+    }
+
+    .food-info-form button {
+        background-color: #ffffff;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .food-info-form button:hover {
+        background-color: #cccccc;
+        transform: scale(1.05);
+    }
+
+    .food-info-item {
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 15px;
+        width: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .food-info-item img {
+        max-width: 150px;
+        max-height: 150px;
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .food-info-item button {
+        background-color: #ff4c4c;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 14px;
+    }
+</style>
 </head>
 <body>
     <div class="container">
@@ -231,29 +301,58 @@
             <button type="button" class="recipe-close-btn" id="recipe-close-btn">&times;</button>
             <div class="meal-details-content"></div>
         </div>
+        <!-- Food Information Section -->
+        <div class="food-info-section">
+            <h2>Add a New Food</h2>
+            <form class="food-info-form">
+                <input type="text" id="food-name" placeholder="Food Name" required>
+                <input type="text" id="food-image" placeholder="Image URL" required>
+                <textarea id="food-nutrients" rows="4" placeholder="Nutrients" required></textarea>
+                <textarea id="food-instructions" rows="4" placeholder="Instructions" required></textarea>
+                <button type="button" id="add-food-btn">Add Food</button>
+            </form>
+            <h2>Added Foods:</h2>
+            <div id="food-list" class="recipes"></div>
+        </div>
     </div>
     <script>
+        // Local Storage Key
+        const FOOD_STORAGE_KEY = 'foods';
+
+        // Select elements
         const searchBtn = document.getElementById('search-btn');
         const mealList = document.getElementById('meal');
         const mealDetailsContent = document.querySelector('.meal-details-content');
         const recipeCloseBtn = document.getElementById('recipe-close-btn');
-
-        // event listeners
-        searchBtn.addEventListener('click', getMealList);
+        const addFoodBtn = document.getElementById('add-food-btn');
+        const foodList = document.getElementById('food-list');
+        const foodNameInput = document.getElementById('food-name');
+        const foodImageInput = document.getElementById('food-image');
+        const foodNutrientsInput = document.getElementById('food-nutrients');
+        const foodInstructionsInput = document.getElementById('food-instructions');
+       
+        // Event Listeners
+        searchBtn.addEventListener('click', searchMeals);
         mealList.addEventListener('click', getMealRecipe);
         recipeCloseBtn.addEventListener('click', () => {
             mealDetailsContent.parentElement.classList.remove('showRecipe');
         });
+        addFoodBtn.addEventListener('click', addFood);
+        foodList.addEventListener('click', deleteFood);
 
-        // get meal list that matches with the ingredients
-        function getMealList() {
+        // Search for meals
+        function searchMeals() {
             let searchInputTxt = document.getElementById('search-input').value.trim();
+
+            // Fetch meals from API
             fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`)
                 .then(response => response.json())
-                .then(data => {
+                .then(apiData => {
                     let html = "";
-                    if (data.meals) {
-                        data.meals.forEach(meal => {
+
+                    // Display API results
+                    if (apiData.meals) {
+                        apiData.meals.forEach(meal => {
                             html += `
                                 <div class="meal-item" data-id="${meal.idMeal}">
                                     <div class="meal-img">
@@ -266,27 +365,59 @@
                                 </div>
                             `;
                         });
-                        mealList.classList.remove('notFound');
-                    } else {
+                    }
+
+                    // Display local foods
+                    let localFoods = JSON.parse(localStorage.getItem(FOOD_STORAGE_KEY)) || [];
+                    localFoods.forEach(food => {
+                        if (food.name.toLowerCase().includes(searchInputTxt.toLowerCase())) {
+                            html += `
+                                <div class="meal-item">
+                                    <div class="meal-img">
+                                        <img src="${food.image}" alt="${food.name}">
+                                    </div>
+                                    <div class="meal-name">
+                                        <h3>${food.name}</h3>
+                                        <p><strong>Nutrients:</strong> ${food.nutrients}</p>
+                                        <p><strong>Instructions:</strong> ${food.instructions}</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+
+                    // Show results
+                    if (html === "") {
                         html = "Sorry, we didn't find any meal!";
                         mealList.classList.add('notFound');
+                    } else {
+                        mealList.classList.remove('notFound');
                     }
                     mealList.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error fetching meal list:', error);
+                    mealList.innerHTML = "Sorry, there was an error fetching the meal list.";
                 });
         }
 
-        // get recipe of the meal
+        // Get meal recipe
         function getMealRecipe(e) {
             e.preventDefault();
             if (e.target.classList.contains('recipe-btn')) {
                 let mealItem = e.target.parentElement.parentElement;
                 fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
                     .then(response => response.json())
-                    .then(data => mealRecipeModal(data.meals));
+                    .then(data => mealRecipeModal(data.meals))
+                    .catch(error => {
+                        console.error('Error fetching meal recipe:', error);
+                        mealDetailsContent.innerHTML = "Sorry, there was an error fetching the meal recipe.";
+                        mealDetailsContent.parentElement.classList.add('showRecipe');
+                    });
             }
         }
 
-        // create a modal
+        // Create a meal recipe modal
         function mealRecipeModal(meal) {
             meal = meal[0];
             let html = `
@@ -306,9 +437,72 @@
             mealDetailsContent.innerHTML = html;
             mealDetailsContent.parentElement.classList.add('showRecipe');
         }
-        document.addEventListener("click",(e) =>{
-            
-        })
+
+        // Add food to local storage
+        function addFood() {
+            const name = foodNameInput.value.trim();
+            const image = foodImageInput.value.trim();
+            const nutrients = foodNutrientsInput.value.trim();
+            const instructions = foodInstructionsInput.value.trim();
+           
+            if (name && image && nutrients && instructions) {
+                const food = {
+                    name: name,
+                    image: image,
+                    nutrients: nutrients,
+                    instructions: instructions
+                };
+
+                let foods = JSON.parse(localStorage.getItem(FOOD_STORAGE_KEY)) || [];
+                foods.push(food);
+                localStorage.setItem(FOOD_STORAGE_KEY, JSON.stringify(foods));
+
+                displayFoods();
+                clearForm();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Display foods from local storage
+        function displayFoods() {
+            let foods = JSON.parse(localStorage.getItem(FOOD_STORAGE_KEY)) || [];
+            let html = '';
+            foods.forEach((food, index) => {
+                html += `
+                    <div class="food-info-item">
+                        <h3>${food.name}</h3>
+                        <img src="${food.image}" alt="${food.name}">
+                        <p><strong>Nutrients:</strong> ${food.nutrients}</p>
+                        <p><strong>Instructions:</strong> ${food.instructions}</p>
+                        <button data-index="${index}">Delete</button>
+                    </div>
+                `;
+            });
+            foodList.innerHTML = html;
+        }
+
+        // Delete food from local storage
+        function deleteFood(e) {
+            if (e.target.tagName === 'BUTTON') {
+                const index = e.target.getAttribute('data-index');
+                let foods = JSON.parse(localStorage.getItem(FOOD_STORAGE_KEY)) || [];
+                foods.splice(index, 1);
+                localStorage.setItem(FOOD_STORAGE_KEY, JSON.stringify(foods));
+                displayFoods();
+            }
+        }
+
+        // Clear form inputs
+        function clearForm() {
+            foodNameInput.value = '';
+            foodImageInput.value = '';
+            foodNutrientsInput.value = '';
+            foodInstructionsInput.value = '';
+        }
+
+        // Initial display of foods
+        displayFoods();
     </script>
 </body>
 </html>
