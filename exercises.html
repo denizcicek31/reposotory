@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Calorie Calculator</title>
+    <style>
+        /* General body styles */
+        body {
+            background-image: url('contactus/katie-smith-uQs1802D0CQ-unsplash.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Exo 2', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for better text visibility */
+        }
+
+        /* Navigation bar styles */
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .protein {
+            font-size: 40px;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: #ffffff;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Main content area styles */
+        .middle-part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .text-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .exercise-calculator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-control {
+            width: 200px;
+            height: 25px;
+            margin: 10px 0;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #000;
+        }
+
+        .main-button {
+            background-color: #ffffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+
+        .results {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .result-item {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .result-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <p title="Website Name" class="protein">ProFitIn</p>
+            <button class="nav-button"><a href="mainPage.html">Main Page</a></button>
+            <button class="nav-button"><a href="exercises.html">Exercises</a></button>
+            <button class="nav-button"><a href="calories.html">Calorie Calculator</a></button>
+            <button class="nav-button"><a href="about-us.html">About Us</a></button>
+            <button class="nav-button"><a href="contactus.html">Contact Us</a></button>
+        </div>
+        <div class="middle-part">
+            <div class="text-section">
+                <h2>Exercise Calorie Calculator</h2>
+                <div class="exercise-calculator">
+                    <select id="exercise-type" class="search-control">
+                        <option value="swimming">Swimming</option>
+                        <option value="running">Running</option>
+                        <option value="cycling">Cycling</option>
+                        <option value="walking">Walking</option>
+                    </select>
+                    <input type="number" id="duration" class="search-control" placeholder="Duration (in minutes)">
+                    <button type="submit" class="main-button" onclick="calculateCalories()">Calculate Calories</button>
+                </div>
+            </div>
+        </div>
+        <div class="results">
+            <h2>Calories Burned:</h2>
+            <div id="result" class="result-item"></div>
+        </div>
+    </div>
+    <script>
+        function calculateCalories() {
+            const exerciseType = document.getElementById('exercise-type').value;
+            const duration = document.getElementById('duration').value;
+            let caloriesPerMinute = 0;
+
+            switch (exerciseType) {
+                case 'swimming':
+                    caloriesPerMinute = 7.0;
+                    break;
+                case 'running':
+                    caloriesPerMinute = 11.4;
+                    break;
+                case 'cycling':
+                    caloriesPerMinute = 7.5;
+                    break;
+                case 'walking':
+                    caloriesPerMinute = 3.8;
+                    break;
+                default:
+                    caloriesPerMinute = 0;
+            }
+
+            const totalCalories = caloriesPerMinute * duration;
+            document.getElementById('result').textContent = `You burned approximately ${totalCalories.toFixed(2)} calories.`;
+        }
+    </script>
+</body>
+</html>
